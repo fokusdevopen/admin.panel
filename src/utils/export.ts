@@ -21,13 +21,13 @@ export const exportToPDF = (data: ExportData, filename: string = 'report') => {
   
   // Заголовки таблицы
   doc.setFontSize(12)
-  doc.setFont(undefined, 'bold')
+  doc.setFont('helvetica', 'bold')
   data.headers.forEach((header, index) => {
     doc.text(header, 14 + index * cellWidth, startY)
   })
   
   // Данные
-  doc.setFont(undefined, 'normal')
+  doc.setFont('helvetica', 'normal')
   data.rows.forEach((row, rowIndex) => {
     row.forEach((cell, colIndex) => {
       doc.text(String(cell), 14 + colIndex * cellWidth, startY + (rowIndex + 1) * cellHeight)
@@ -48,6 +48,7 @@ export const exportToExcel = (data: ExportData, filename: string = 'report') => 
   const workbook = XLSX.utils.book_new()
   XLSX.utils.book_append_sheet(workbook, worksheet, 'Отчёт')
   
-  XLSX.writeFile(workbook, `${filename}.xlsx`)
+  const fileName = filename || 'report'
+  XLSX.writeFile(workbook, `${fileName}.xlsx`)
 }
 
