@@ -61,3 +61,4 @@ https://YOUR_USERNAME.github.io/admin.panel
 - ✅ Создан `404.html` для SPA
 - ✅ Настроена базовая конфигурация
 
+
