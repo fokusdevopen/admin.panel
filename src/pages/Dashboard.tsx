@@ -1,5 +1,5 @@
 import { TrendingUp, Users, FolderKanban, DollarSign, ArrowUpRight } from 'lucide-react'
-import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 const stats = [
   { title: 'Всего клиентов', value: '1,234', change: '+12.5%', trend: 'up', icon: Users, color: 'text-blue-600' },
