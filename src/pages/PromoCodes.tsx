@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Search, Plus, Edit, Trash2, Eye, Calendar, MapPin, User, Package } from 'lucide-react'
+import { Search, Plus, Edit, Trash2, Eye, Calendar } from 'lucide-react'
 
 interface PromoCode {
   id: string
