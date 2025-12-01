@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export default {
   plugins: {
     tailwindcss: {},
@@ -8,3 +9,15 @@ export default {
 
 
 
+=======
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+
+
+
+>>>>>>> f126881 (Initial commit)
