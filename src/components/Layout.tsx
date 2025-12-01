@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, 
@@ -11,8 +11,11 @@ import {
   CheckSquare, 
   Settings,
   Menu,
-  X
+  X,
+  Clock
 } from 'lucide-react'
+import { format } from 'date-fns'
+import { ru } from 'date-fns/locale'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -32,16 +35,34 @@ const menuItems = [
 
 export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [currentTime, setCurrentTime] = useState(new Date())
   const location = useLocation()
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date())
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Date and time bar */}
+      <div className="bg-primary-600 text-white py-1 px-4">
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <Clock size={14} />
+          <span>{format(currentTime, 'dd MMMM yyyy, HH:mm:ss', { locale: ru })}</span>
+        </div>
+      </div>
+
       {/* Mobile header */}
       <div className="lg:hidden bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
-        <h1 className="text-xl font-bold text-primary-600">Админка FOKUS</h1>
+        <h1 className="text-xl font-bold text-primary-600">FOKUS</h1>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="p-2 rounded-lg hover:bg-gray-100"
+          aria-label={sidebarOpen ? "Закрыть меню" : "Открыть меню"}
         >
           {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -56,7 +77,7 @@ export default function Layout({ children }: LayoutProps) {
         >
           <div className="h-full flex flex-col">
             <div className="p-6 border-b border-gray-200 hidden lg:block">
-              <h1 className="text-2xl font-bold text-primary-600">Админка FOKUS</h1>
+              <h1 className="text-2xl font-bold text-primary-600">FOKUS</h1>
               <p className="text-sm text-gray-500 mt-1">Цифровое Агентство</p>
             </div>
             
@@ -76,7 +97,7 @@ export default function Layout({ children }: LayoutProps) {
                             : 'text-gray-700 hover:bg-gray-50'
                         }`}
                       >
-                        <Icon size={20} />
+                        <Icon size={20} aria-hidden="true" />
                         <span>{item.label}</span>
                       </Link>
                     </li>
