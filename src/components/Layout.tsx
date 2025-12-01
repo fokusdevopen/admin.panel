@@ -115,6 +115,9 @@ export default function Layout({ children }: LayoutProps) {
                   <p className="text-sm font-medium text-gray-900">Администратор</p>
                   <p className="text-xs text-gray-500">admin@fokus.ru</p>
                 </div>
+                <Link to="/settings" className="p-2 text-gray-500 hover:text-primary-600 rounded-lg">
+                  <Settings size={18} />
+                </Link>
               </div>
             </div>
           </div>
