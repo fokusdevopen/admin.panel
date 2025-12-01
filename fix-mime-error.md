@@ -58,3 +58,5 @@ const base = './'  // вместо '/admin.panel/'
 3. Попробуйте использовать GitHub Actions вместо `gh-pages` пакета
 4. Очистите кеш браузера (Ctrl+Shift+R)
 
+
+
