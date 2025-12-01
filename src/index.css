@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,3 +30,44 @@
 
 
 
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-md border border-secondary-200 p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-100 hover:bg-secondary-200 text-gray-800 font-medium px-6 py-3 rounded-xl transition-all duration-300;
+  }
+  
+  .input {
+    @apply w-full px-4 py-3 border border-secondary-300 rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-transparent outline-none transition-all bg-secondary-50;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800;
+  }
+  
+  .stat-card {
+    @apply bg-gradient-to-br from-white to-secondary-50 rounded-xl shadow-md border border-secondary-200 p-6 transition-all duration-300 hover:shadow-lg;
+  }
+}
+
+
+
+
+>>>>>>> f126881 (Initial commit)
